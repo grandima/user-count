@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"Yalantis/session"
+	"github.com/grandima/user-count/session"
 )
 
 type StorageInterface interface {
@@ -29,7 +29,7 @@ type Handler struct {
 
 const userCountKey = "userCountKey"
 
-func (handler *Handler) Yalantis(w http.ResponseWriter, r *http.Request) {
+func (handler *Handler) Handle(w http.ResponseWriter, r *http.Request) {
 	var count int
 	token, error := handler.SessionManager.ReadCookie(w, r)
 	if error != nil {

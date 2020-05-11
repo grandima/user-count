@@ -1,11 +1,12 @@
 package main
 
 import (
-	"Yalantis/handlers"
-	"Yalantis/session"
-	cache "Yalantis/storage"
 	"log"
 	"net/http"
+
+	"github.com/grandima/user-count/handlers"
+	"github.com/grandima/user-count/session"
+	cache "github.com/grandima/user-count/storage"
 
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
@@ -26,7 +27,7 @@ func main() {
 	r.Use(middleware.Logger)
 	r.Use(middleware.Recoverer)
 
-	r.Get("/yalantis", handler.Yalantis)
+	r.Get("/go", handler.Handle)
 
 	log.Fatal(http.ListenAndServe(":8003", r))
 }
